@@ -4,7 +4,7 @@ COPY --chown=gradle:gradle . /home/gradle/src
 
 WORKDIR /home/gradle/src
 
-RUN gradle build -x test
+RUN gradle clean build -x test
 
 FROM openjdk:17-alpine
 

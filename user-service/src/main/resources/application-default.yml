@@ -1,8 +1,4 @@
-server:
-  port: 3567
 spring:
-  application:
-    name: user-service
   data:
     mongodb:
       host: localhost
@@ -11,3 +7,7 @@ spring:
       username: barroit
       password: barroit
       authentication-database: admin
+  application:
+    name: user-service
+server:
+  port: 3567

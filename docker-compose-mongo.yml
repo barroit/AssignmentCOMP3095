@@ -1,18 +1,6 @@
 version: "3.7"
 
 services:
-  user-service:
-    ports:
-      - "3567:3567"
-    build:
-      context: ./user-service
-      dockerfile: ./Dockerfile
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      - mongodb
-    networks:
-      - spring
   mongodb:
     image: mongo:latest
     ports:
@@ -35,13 +23,3 @@ networks:
 volumes:
   mongo-data:
 
-#  post-service:
-#    build:
-#      context: ./post-service
-#    ports:
-#      - "3568:8080"
-#  friendship-service:
-#    build:
-#      context: ./friendship-service
-#    ports:
-#      - "3569:8080"
