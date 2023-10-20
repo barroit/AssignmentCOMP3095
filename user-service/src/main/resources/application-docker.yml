@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: user-service
+      username: barroit
+      password: barroit
+      authentication-database: admin
+  application:
+    name: user-service
+server:
+  port: 3567
