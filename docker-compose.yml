@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  user-service:
+    build:
+      context: ./user-service
+    ports:
+      - "3567:3567"
+#  post-service:
+#    build:
+#      context: ./post-service
+#    ports:
+#      - "3568:8080"
+#  friendship-service:
+#    build:
+#      context: ./friendship-service
+#    ports:
+#      - "3569:8080"
