@@ -1,0 +1,14 @@
+package com.gbc.springsocial.service.user.advisor;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	@ExceptionHandler({ IllegalStateException.class, IllegalArgumentException.class })
+	public ResponseEntity<String> handleCustomException(Exception ex) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+	}
+}

@@ -1,20 +1,17 @@
-FROM gradle:8-jdk17-alpine AS builder
+FROM gradle:8.4.0-jdk17 AS build
 
-COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /app
 
-WORKDIR /home/gradle/src
+COPY . .
 
-RUN gradle clean build -x test
+RUN gradle clean :user-service:build -x test --no-daemon
 
-FROM openjdk:17-alpine
+FROM openjdk:17-jdk-slim
 
-RUN mkdir /app
+WORKDIR /app
 
-COPY --from=builder /home/gradle/src/build/libs/*.jar /app/user-service.jar
+COPY --from=build /app/user-service/build/libs/user-service.jar /app/service.jar
 
 EXPOSE 3567
 
-ENTRYPOINT ["java", "-jar", "/app/user-service.jar"]
-
-
-
+ENTRYPOINT ["java","-jar","/app/service.jar"]

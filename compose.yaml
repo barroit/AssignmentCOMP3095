@@ -1,0 +1,39 @@
+version: "8"
+
+services:
+  user-service:
+    build:
+      context: .
+      dockerfile: user-service/Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+    depends_on:
+      - mongodb
+    networks:
+      - spring-social
+    ports:
+      - "3567:3567"
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+      - ./init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    restart: unless-stopped
+    command: mongod --auth
+    networks:
+      - spring-social
+
+networks:
+  spring-social:
+    driver: bridge
+
+volumes:
+  mongo-data:
