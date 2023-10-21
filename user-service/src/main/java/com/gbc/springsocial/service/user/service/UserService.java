@@ -1,6 +1,6 @@
 package com.gbc.springsocial.service.user.service;
 
-import com.gbc.springsocial.service.user.model.User;
+import com.gbc.springsocial.shared.model.User;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ public interface UserService {
 
 	List<User> get();
 
-	User get(String id);
+	User get(String type, String identifier);
 }

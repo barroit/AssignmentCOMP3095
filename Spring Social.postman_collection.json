@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "1d551004-8dda-4779-9a2b-39e9667d4259",
+		"name": "Spring Social",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19525382"
+	},
+	"item": [
+		{
+			"name": "User Service",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3567/user/select",
+							"host": [
+								"localhost"
+							],
+							"port": "3567",
+							"path": [
+								"user",
+								"select"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3567/user/select/id/65343e11e85f7f18238aaae6",
+							"host": [
+								"localhost"
+							],
+							"port": "3567",
+							"path": [
+								"user",
+								"select",
+								"id",
+								"65343e11e85f7f18238aaae6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3567/user/select/name/bob",
+							"host": [
+								"localhost"
+							],
+							"port": "3567",
+							"path": [
+								"user",
+								"select",
+								"name",
+								"bob"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "barroit",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "someone@email.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3567/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3567",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "65343e5a17b6566d215ee743",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "baioretto",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "asd@email.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3567/user/update",
+							"host": [
+								"localhost"
+							],
+							"port": "3567",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3567/user/delete/65344391b45ab7c5aeb216f7",
+							"host": [
+								"localhost"
+							],
+							"port": "3567",
+							"path": [
+								"user",
+								"delete",
+								"65344391b45ab7c5aeb216f7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post service",
+			"item": [
+				{
+					"name": "Get Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3568/post/select",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"select"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3568/post/select/user/alice",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"select",
+								"user",
+								"alice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3568/post/select/id/65343e11e85f7f18238aaaeb",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"select",
+								"id",
+								"65343e11e85f7f18238aaaeb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3568/post/select/slug/post-1",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"select",
+								"slug",
+								"post-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "post 3",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "post-3",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "some content ........",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "bob",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3568/post/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "6534402c26b7315a614560fb",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "ppppppp",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "test-post-1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "content",
+									"value": "some content ....",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3568/post/update",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3568/post/delete/unique/65343e11e85f7f18238aaaea",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"delete",
+								"unique",
+								"65343e11e85f7f18238aaaea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post by User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3568/post/delete/user/653418206de8bad560ef86a5",
+							"host": [
+								"localhost"
+							],
+							"port": "3568",
+							"path": [
+								"post",
+								"delete",
+								"user",
+								"653418206de8bad560ef86a5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment Service",
+			"item": [
+				{
+					"name": "Get Comments by Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3569/comment/select/65344391b45ab7c5aeb216fb",
+							"host": [
+								"localhost"
+							],
+							"port": "3569",
+							"path": [
+								"comment",
+								"select",
+								"65344391b45ab7c5aeb216fb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "A comment by barroit",
+									"type": "text"
+								},
+								{
+									"key": "postId",
+									"value": "653418206de8bad560ef86a5",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "653421c50827153b515fb443",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3569/comment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3569",
+							"path": [
+								"comment",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "653425dfecd96c08e8b80cff",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "text..................",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3569/comment/update",
+							"host": [
+								"localhost"
+							],
+							"port": "3569",
+							"path": [
+								"comment",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3569/comment/delete/unique/653423a32122d633c9dae028",
+							"host": [
+								"localhost"
+							],
+							"port": "3569",
+							"path": [
+								"comment",
+								"delete",
+								"unique",
+								"653423a32122d633c9dae028"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comments by Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3569/comment/delete/post/653423a32122d633c9dae028",
+							"host": [
+								"localhost"
+							],
+							"port": "3569",
+							"path": [
+								"comment",
+								"delete",
+								"post",
+								"653423a32122d633c9dae028"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

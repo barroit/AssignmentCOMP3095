@@ -1,6 +1,6 @@
 package com.gbc.springsocial.service.user.controller;
 
-import com.gbc.springsocial.service.user.model.User;
+import com.gbc.springsocial.shared.model.User;
 import com.gbc.springsocial.service.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,27 +13,27 @@ import java.util.List;
 public class UserController {
 	private final UserService userService;
 
-	@GetMapping
-	public List<User> get() {
+	@GetMapping("/select")
+	public List<User> select() {
 		return userService.get();
 	}
 
-	@GetMapping("/{id}")
-	public User get(@PathVariable String id) {
-		return userService.get(id);
+	@GetMapping("/select/{type}/{identifier}")
+	public User select(@PathVariable String type, @PathVariable String identifier) {
+		return userService.get(type, identifier);
 	}
 
-	@PostMapping
+	@PostMapping("/create")
 	public Object create(User user) {
 		return userService.create(user);
 	}
 
-	@PutMapping
+	@PutMapping("/update")
 	public Object update(User user) {
 		return userService.update(user);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public Object delete(@PathVariable String id) {
 		return userService.delete(id);
 	}

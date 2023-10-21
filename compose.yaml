@@ -5,10 +5,8 @@ services:
     build:
       context: .
       dockerfile: user-service/Dockerfile
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - MONGO_USERNAME=${MONGO_USERNAME}
-      - MONGO_PASSWORD=${MONGO_PASSWORD}
+    env_file:
+      - service-variable.env
     depends_on:
       - mongodb
     networks:
@@ -16,13 +14,39 @@ services:
     ports:
       - "3567:3567"
 
+  post-service:
+    build:
+      context: .
+      dockerfile: post-service/Dockerfile
+    env_file:
+      - service-variable.env
+    depends_on:
+      - mongodb
+    networks:
+      - spring-social
+    ports:
+      - "3568:3568"
+
+  comment-service:
+    build:
+      context: .
+      dockerfile: comment-service/Dockerfile
+    env_file:
+      - service-variable.env
+    depends_on:
+      - mongodb
+    networks:
+      - spring-social
+    ports:
+      - "3569:3569"
+
   mongodb:
     image: mongo:latest
     ports:
       - "27017:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
     volumes:
       - mongo-data:/data/db
       - ./init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro

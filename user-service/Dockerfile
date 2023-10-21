@@ -12,6 +12,6 @@ WORKDIR /app
 
 COPY --from=build /app/user-service/build/libs/user-service.jar /app/service.jar
 
-EXPOSE 3567
+EXPOSE 3568
 
 ENTRYPOINT ["java","-jar","/app/service.jar"]
