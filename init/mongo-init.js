@@ -68,4 +68,14 @@ db.comment.insertMany([
 
 print("--------------------INSERTED COMMENTS--------------------");
 
+db.createCollection("relation");
+db.relation.createIndex({ "from": 1, "to": 1 });
+
+db.relation.insertMany([
+    { from_id: alice_id, to_id: bob_id, status: "accepted" },
+    { from_id: charlie_id, to_id: fiona_id, status: "pending" }
+]);
+
+print("--------------------INSERTED RELATIONS--------------------");
+
 print("--------------------FINISHED INIT--------------------\n\n");

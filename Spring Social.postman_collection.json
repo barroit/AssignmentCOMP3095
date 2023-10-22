@@ -167,7 +167,7 @@
 			]
 		},
 		{
-			"name": "Post service",
+			"name": "Post Service",
 			"item": [
 				{
 					"name": "Get Posts",
@@ -363,7 +363,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Post by User",
+					"name": "Delete Post by User Id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -389,12 +389,31 @@
 			"name": "Comment Service",
 			"item": [
 				{
+					"name": "Get All Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3569/comment/select",
+							"host": [
+								"localhost"
+							],
+							"port": "3569",
+							"path": [
+								"comment",
+								"select"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Comments by Post",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3569/comment/select/65344391b45ab7c5aeb216fb",
+							"raw": "localhost:3569/comment/select/65344743ec55847bac0e088f",
 							"host": [
 								"localhost"
 							],
@@ -402,7 +421,7 @@
 							"path": [
 								"comment",
 								"select",
-								"65344391b45ab7c5aeb216fb"
+								"65344743ec55847bac0e088f"
 							]
 						}
 					},
@@ -518,6 +537,118 @@
 								"delete",
 								"post",
 								"653423a32122d633c9dae028"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Friendship Service",
+			"item": [
+				{
+					"name": "Get All Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3570/friendship/status/all",
+							"host": [
+								"localhost"
+							],
+							"port": "3570",
+							"path": [
+								"friendship",
+								"status",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fromId",
+									"value": "65346ad0fecd74b1fcaec3d2",
+									"type": "text"
+								},
+								{
+									"key": "toId",
+									"value": "65346ad0fecd74b1fcaec3d4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3570/friendship/request",
+							"host": [
+								"localhost"
+							],
+							"port": "3570",
+							"path": [
+								"friendship",
+								"request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fromId",
+									"value": "65346ad0fecd74b1fcaec3d2",
+									"type": "text"
+								},
+								{
+									"key": "toId",
+									"value": "65346ad0fecd74b1fcaec3d4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3570/friendship/approval",
+							"host": [
+								"localhost"
+							],
+							"port": "3570",
+							"path": [
+								"friendship",
+								"approval"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Declined Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3570/friendship/declined",
+							"host": [
+								"localhost"
+							],
+							"port": "3570",
+							"path": [
+								"friendship",
+								"declined"
 							]
 						}
 					},

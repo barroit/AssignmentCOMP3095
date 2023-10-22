@@ -22,6 +22,23 @@ public class CommentServiceImpl implements CommentService {
 	private final CommentRepository commentRepository;
 
 	/**
+	 * Retrieves all the comments stored in the database.
+	 *
+	 * @return A list of all comments.
+	 */
+	@Override
+	public List<Comment> select() {
+		return commentRepository.findAll().stream().peek(comment -> {
+			try {
+				User user = Bridge.getUserById(userRestTemplate, comment.getUserId());
+				if (user != null) comment.setAuthor(user.getUsername());
+			} catch (Exception ignore) {
+				comment.setAuthor("unknown");
+			}
+		}).toList();
+	}
+
+	/**
 	 * Retrieves a list of comments associated with a given Post ID.
 	 *
 	 * @param id The ID of the Post for which comments are to be fetched.
@@ -33,7 +50,9 @@ public class CommentServiceImpl implements CommentService {
 			try {
 				User user = Bridge.getUserById(userRestTemplate, comment.getUserId());
 				if (user != null) comment.setAuthor(user.getUsername());
-			} catch (Exception ignore) { }
+			} catch (Exception ignore) {
+				comment.setAuthor("unknown");
+			}
 		}).toList();
 	}
 

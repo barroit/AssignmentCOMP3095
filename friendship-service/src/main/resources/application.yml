@@ -1,0 +1,10 @@
+server:
+  port: 3570
+spring:
+  application:
+    name: friendship-service
+  data:
+    mongodb:
+      port: 27017
+      database: spring-social
+      authentication-database: spring-social

@@ -13,6 +13,11 @@ import java.util.List;
 public class CommentController {
 	private final CommentService commentService;
 
+	@GetMapping("/select")
+	List<Comment> select() {
+		return commentService.select();
+	}
+
 	@GetMapping("/select/{id}")
 	List<Comment> selectByPostId(@PathVariable String id) {
 		return commentService.selectByPostId(id);

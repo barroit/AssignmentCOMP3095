@@ -40,6 +40,19 @@ services:
     ports:
       - "3569:3569"
 
+  friendship-service:
+    build:
+      context: .
+      dockerfile: friendship-service/Dockerfile
+    env_file:
+      - service-variable.env
+    depends_on:
+      - mongodb
+    networks:
+      - spring-social
+    ports:
+      - "3570:3570"
+
   mongodb:
     image: mongo:latest
     ports:
